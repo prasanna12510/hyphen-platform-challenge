@@ -1,10 +1,10 @@
-# hyphen-platform-challenge
+# Hyphen-platform-challenge
 Platform Engineering Challenge for Hyphen Group
 
 This repo contains code that
-1) Terraform infra stack to deploy k8s (kind) cluster, promethus-stack, ingress-controller
-2) service stack that deploy foo and bar service using skaffold
-3) metric exporter to export the input promql data in csv format
+1. Terraform infra stack to deploy k8s (kind) cluster, promethus-stack, ingress-controller
+2. service stack that deploy foo and bar service using skaffold
+3. metric exporter to export the input promql data in csv format
 
 ## Prerequisites
 1. Have `Docker` and the `Kubernetes CLI` (`kubectl`) installed together with `Minikube` (https://kubernetes.io/docs/tasks/tools/)
