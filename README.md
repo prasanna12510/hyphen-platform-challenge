@@ -26,14 +26,14 @@ cd infra/promethus
 terraform plan && terraform apply
 
 To Import Dashboard for k8s and nginx-controller
-```shell
-export POD_NAME=$(kubectl get pods --namespace monitoring -l "app=grafana" -o jsonpath="{.items[0].metadata.name}")
-kubectl --namespace monitoring port-forward $POD_NAME 3000
-```
+  ```shell
+  export POD_NAME=$(kubectl get pods --namespace monitoring -l "app=grafana" -o jsonpath="{.items[0].metadata.name}")
+  kubectl --namespace monitoring port-forward $POD_NAME 3000
+  ```
 * Open http://localhost:3000/dashboard/import
 * Grafana dashboard username and password can be retrieved from secret(`prometheus-grafana`).
 * Upload JSON from promethus/dashboards, configure Prometheus as Data source
-```
+
 
 3. Nginx Ingress controller
 ```shell

@@ -5,9 +5,9 @@ variable "kind_cluster_config_path" {
 }
 
 variable "atomic" {
-  default = true
+  default     = true
   description = "Purge the chart on a failed installation. Default's to \"true\"."
-  type = bool
+  type        = bool
 }
 
 variable "chart_name" {
