@@ -1,0 +1,3 @@
+avg(container_memory_working_set_bytes{pod=~"foo-.*"})
+avg(kube_pod_container_resource_requests_cpu_cores{pod=~"foo-.*"})
+sum by(job) (rate(http_server_requests_seconds_count{job=~"foo-.*"}[1m]))

@@ -6,9 +6,6 @@ provider "helm" {
 
 resource "helm_release" "ingress_nginx" {
   name       = "ingress-nginx"
-  atomic           = var.atomic
-  cleanup_on_fail  = var.cleanup_on_fail
-
   repository = "https://kubernetes.github.io/ingress-nginx"
   chart      = "ingress-nginx"
   version    = var.ingress_nginx_helm_version
@@ -31,7 +28,7 @@ resource "null_resource" "wait_for_ingress_nginx" {
       kubectl wait --namespace ${helm_release.ingress_nginx.namespace} \
         --for=condition=ready pod \
         --selector=app.kubernetes.io/component=controller \
-        --timeout=100s
+        --timeout=120s
     EOF
   }
 
