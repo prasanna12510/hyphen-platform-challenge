@@ -1,0 +1,21 @@
+apiVersion: skaffold/v2beta26
+kind: Config
+build:
+  artifacts:
+  - image: hashicorp/http-echo
+deploy:
+  helm:
+    flags:
+      global:
+        - --debug
+    releases:
+    - name: bar-app
+      chartPath: ../helm-chart
+      wait: true
+      artifactOverrides:
+        image: hashicorp/http-echo
+      imageStrategy:
+          helm:
+            explicitRegistry: false
+      packaged:
+        appVersion: "{{ .IMAGE_TAG }}"

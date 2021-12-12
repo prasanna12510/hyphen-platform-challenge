@@ -1,0 +1,40 @@
+nameOverride: ""
+fullnameOverride: ""
+
+#set the replica count
+replicaCount: 1
+
+image:
+  repository: hashicorp/http-echo
+  pullPolicy: IfNotPresent
+  tag: "0.2.3"
+
+k8s:
+  ingress:
+    enabled: true
+    path: /bar
+  args:
+    - "-text=bar"
+  service:
+    type: ClusterIP
+    name: http
+    port: 5678
+    targetPort: 5678
+
+  liveness:
+    httpGet:
+      path: /bar
+      port: http
+    timeoutSeconds: 30
+    periodSeconds: 10
+    failureThreshold: 3
+    initialDelaySeconds: 10
+
+  readiness:
+    httpGet:
+      path: /bar
+      port: http
+    timeoutSeconds: 30
+    periodSeconds: 10
+    failureThreshold: 3
+    initialDelaySeconds: 10
