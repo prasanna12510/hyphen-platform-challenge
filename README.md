@@ -65,3 +65,20 @@ export POD_NAME=$(kubectl get pods --namespace monitoring -l "app=prometheus,com
 kubectl --namespace monitoring port-forward $POD_NAME 9090
 ```
 3. Specify the Promql in the promql file and execute python prom_csv.py
+
+
+
+
+## Monitoring output
+1. Analyze promql on grafana dashboard
+![Alt text](https://github.com/prasanna12510/hyphen-platform-challenge/blob/main/doc/img/metrics-grafana.png?raw=true "Grafana")
+
+
+2. Metric Exporter Query Output
+![Alt text](https://github.com/prasanna12510/hyphen-platform-challenge/blob/main/doc/img/prom2csv.png?raw=true "Prom2Csv Exporter")
+
+3. Ingress Monitoring
+![Alt text](https://github.com/prasanna12510/hyphen-platform-challenge/blob/main/doc/img/ingress-monitoring.png?raw=true "Ingress Monitoring")
+
+4. Cluster Monitoring
+![Alt text](https://github.com/prasanna12510/hyphen-platform-challenge/blob/main/doc/img/clusterdetail.png?raw=true "K8s Cluster Monitoring")
